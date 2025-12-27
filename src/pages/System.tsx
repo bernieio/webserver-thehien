@@ -68,14 +68,14 @@ export default function System() {
 
       {/* Connection Status */}
       <div className="card">
-        <h2 className="text-lg font-semibold mb-4">Trạng thái kết nối</h2>
+        <h2 className="text-2xl font-semibold mb-4">Trạng thái kết nối</h2>
         <div className="flex items-center gap-3">
           <span
-            className={`w-3 h-3 rounded-full ${
+            className={`w-4 h-4 rounded-full ${
               isConnected ? 'bg-[#22c55e]' : isError ? 'bg-[#ef4444]' : 'bg-[#f59e0b]'
             }`}
           />
-          <span className="text-sm font-medium">
+          <span className="text-xl font-medium">
             {isConnected ? 'Đã kết nối' : isError ? 'Mất kết nối' : 'Đang kết nối...'}
           </span>
         </div>
@@ -85,12 +85,12 @@ export default function System() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Server Info */}
         <div className="card">
-          <h2 className="text-lg font-semibold mb-4">Thông tin máy chủ</h2>
-          <div className="space-y-3 text-sm">
+          <h2 className="text-2xl font-semibold mb-4">Thông tin máy chủ</h2>
+          <div className="space-y-3 text-lg">
             <div className="flex justify-between py-2 border-b border-[#f0f0f0]">
               <span className="text-[#666666]">Trạng thái</span>
               <span className="font-medium flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-[#22c55e]' : 'bg-[#ef4444]'}`} />
+                <span className={`w-3 h-3 rounded-full ${isConnected ? 'bg-[#22c55e]' : 'bg-[#ef4444]'}`} />
                 {status?.status ?? 'Không xác định'}
               </span>
             </div>
@@ -117,8 +117,8 @@ export default function System() {
 
         {/* Queue Info */}
         <div className="card">
-          <h2 className="text-lg font-semibold mb-4">Cấu hình hàng đợi</h2>
-          <div className="space-y-3 text-sm">
+          <h2 className="text-2xl font-semibold mb-4">Cấu hình hàng đợi</h2>
+          <div className="space-y-3 text-lg">
             <div className="flex justify-between py-2 border-b border-[#f0f0f0]">
               <span className="text-[#666666]">Kích thước tối đa</span>
               <span className="font-medium">{status?.queue?.max_size ?? 100}</span>
@@ -141,45 +141,45 @@ export default function System() {
 
       {/* Maintenance Actions */}
       <div className="card">
-        <h2 className="text-lg font-semibold mb-4">Bảo trì</h2>
+        <h2 className="text-2xl font-semibold mb-4">Bảo trì</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="p-4 bg-[#fafafa] rounded-lg">
-            <h3 className="font-medium mb-2">Dọn dẹp nhật ký cũ</h3>
-            <p className="text-sm text-[#666666] mb-3">
+            <h3 className="text-xl font-medium mb-2">Dọn dẹp nhật ký cũ</h3>
+            <p className="text-lg text-[#666666] mb-3">
               Xóa nhật ký cũ hơn 90 ngày khỏi cơ sở dữ liệu.
             </p>
             <button
               onClick={handleCleanup}
               disabled={cleanupMutation.isPending}
-              className="btn btn-secondary w-full"
+              className="btn btn-secondary w-full text-lg py-3"
             >
               {cleanupMutation.isPending ? 'Đang dọn...' : 'Dọn dẹp'}
             </button>
           </div>
 
           <div className="p-4 bg-[#fafafa] rounded-lg">
-            <h3 className="font-medium mb-2">Xóa nhật ký hoạt động</h3>
-            <p className="text-sm text-[#666666] mb-3">
+            <h3 className="text-xl font-medium mb-2">Xóa nhật ký hoạt động</h3>
+            <p className="text-lg text-[#666666] mb-3">
               Xóa bộ đệm nhật ký hoạt động thời gian thực.
             </p>
             <button
               onClick={() => handleClearHot('activity')}
               disabled={clearHotMutation.isPending}
-              className="btn btn-secondary w-full"
+              className="btn btn-secondary w-full text-lg py-3"
             >
               Xóa hoạt động
             </button>
           </div>
 
           <div className="p-4 bg-[#fafafa] rounded-lg">
-            <h3 className="font-medium mb-2">Xóa nhật ký máy chủ</h3>
-            <p className="text-sm text-[#666666] mb-3">
+            <h3 className="text-xl font-medium mb-2">Xóa nhật ký máy chủ</h3>
+            <p className="text-lg text-[#666666] mb-3">
               Xóa bộ đệm nhật ký máy chủ thời gian thực.
             </p>
             <button
               onClick={() => handleClearHot('server')}
               disabled={clearHotMutation.isPending}
-              className="btn btn-secondary w-full"
+              className="btn btn-secondary w-full text-lg py-3"
             >
               Xóa máy chủ
             </button>
@@ -189,16 +189,16 @@ export default function System() {
 
       {/* Environment Info */}
       <div className="card">
-        <h2 className="text-lg font-semibold mb-4">Môi trường</h2>
-        <div className="bg-[#fafafa] rounded-lg p-4 font-mono text-sm">
+        <h2 className="text-2xl font-semibold mb-4">Môi trường</h2>
+        <div className="bg-[#fafafa] rounded-lg p-4 font-mono text-lg">
           <div className="text-[#999999]">Địa chỉ API</div>
-          <div className="mb-3">http://127.0.0.1:8000</div>
+          <div className="mb-3 text-xl">http://127.0.0.1:8000</div>
 
           <div className="text-[#999999]">Lưu trữ</div>
-          <div className="mb-3">Cloudflare R2 / KV / D1</div>
+          <div className="mb-3 text-xl">Cloudflare R2 / KV / D1</div>
 
           <div className="text-[#999999]">Cập nhật lần cuối</div>
-          <div>{formatDateTime(status?.timestamp)}</div>
+          <div className="text-xl">{formatDateTime(status?.timestamp)}</div>
         </div>
       </div>
     </div>

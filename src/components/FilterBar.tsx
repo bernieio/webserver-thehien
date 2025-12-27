@@ -52,32 +52,32 @@ export default function FilterBar({
       <div className="flex flex-wrap items-center gap-4">
         {/* Date Range */}
         <div className="flex items-center gap-2">
-          <label className="text-sm text-[#666666]">Từ:</label>
+          <label className="text-lg text-[#666666]">Từ:</label>
           <input
             type="date"
             value={startDate || ''}
             onChange={(e) => onStartDateChange(e.target.value)}
-            className="text-sm px-2 py-1 border border-[#e5e5e5] rounded"
+            className="text-lg px-3 py-2 border border-[#e5e5e5] rounded"
           />
         </div>
 
         <div className="flex items-center gap-2">
-          <label className="text-sm text-[#666666]">Đến:</label>
+          <label className="text-lg text-[#666666]">Đến:</label>
           <input
             type="date"
             value={endDate || ''}
             onChange={(e) => onEndDateChange(e.target.value)}
-            className="text-sm px-2 py-1 border border-[#e5e5e5] rounded"
+            className="text-lg px-3 py-2 border border-[#e5e5e5] rounded"
           />
         </div>
 
         {/* Quick Presets */}
-        <div className="flex gap-1">
+        <div className="flex gap-2">
           {presets.map((preset) => (
             <button
               key={preset.label}
               onClick={() => applyPreset(preset)}
-              className={`px-3 py-1 text-xs rounded border transition-colors ${
+              className={`px-4 py-2 text-lg rounded border transition-colors ${
                 startDate === preset.start && endDate === preset.end
                   ? 'bg-[#1a1a1a] text-white border-[#1a1a1a]'
                   : 'border-[#e5e5e5] hover:border-[#1a1a1a]'
@@ -91,11 +91,11 @@ export default function FilterBar({
         {/* Log Type Filter */}
         {showLogFilters && onLogTypeChange && (
           <div className="flex items-center gap-2">
-            <label className="text-sm text-[#666666]">Loại:</label>
+            <label className="text-lg text-[#666666]">Loại:</label>
             <select
               value={logType || ''}
               onChange={(e) => onLogTypeChange(e.target.value)}
-              className="text-sm px-2 py-1 border border-[#e5e5e5] rounded"
+              className="text-lg px-3 py-2 border border-[#e5e5e5] rounded"
             >
               <option value="">Tất cả</option>
               <option value="activity">Hoạt động</option>
@@ -108,11 +108,11 @@ export default function FilterBar({
         {/* Log Level Filter */}
         {showLogFilters && onLogLevelChange && (
           <div className="flex items-center gap-2">
-            <label className="text-sm text-[#666666]">Mức:</label>
+            <label className="text-lg text-[#666666]">Mức:</label>
             <select
               value={logLevel || ''}
               onChange={(e) => onLogLevelChange(e.target.value)}
-              className="text-sm px-2 py-1 border border-[#e5e5e5] rounded"
+              className="text-lg px-3 py-2 border border-[#e5e5e5] rounded"
             >
               <option value="">Tất cả</option>
               <option value="debug">Debug</option>
@@ -127,7 +127,7 @@ export default function FilterBar({
         {/* Clear Button */}
         <button
           onClick={clearFilters}
-          className="text-sm text-[#666666] hover:text-[#1a1a1a] underline"
+          className="text-lg text-[#666666] hover:text-[#1a1a1a] underline"
         >
           Xóa bộ lọc
         </button>
