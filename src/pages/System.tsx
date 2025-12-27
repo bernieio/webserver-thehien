@@ -7,6 +7,7 @@ import { useStatus, useHealthCheck } from '@/hooks/useStatus';
 import { useCleanupLogs, useClearHotLogs } from '@/hooks/useLogs';
 import { formatDateTime } from '@/utils/formatters';
 import { toast } from '@/hooks/use-toast';
+import StatusCard from '@/components/StatusCard';
 
 export default function System() {
   const { data: status } = useStatus();
@@ -62,7 +63,10 @@ export default function System() {
         </p>
       </div>
 
-      {/* Connection Status - Moved from Navbar */}
+      {/* Status Cards - Moved from Dashboard */}
+      <StatusCard />
+
+      {/* Connection Status */}
       <div className="card">
         <h2 className="text-lg font-semibold mb-4">Trạng thái kết nối</h2>
         <div className="flex items-center gap-3">

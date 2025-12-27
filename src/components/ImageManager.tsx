@@ -94,28 +94,33 @@ export default function ImageManager({ startDate, endDate }: ImageManagerProps) 
 
   return (
     <div>
-      {/* Toolbar */}
+      {/* Toolbar - View toggle first */}
       <div className="flex items-center justify-between mb-4 p-3 bg-[#fafafa] rounded-lg">
+        {/* View Mode Toggle - Left side */}
         <div className="flex items-center gap-4">
+          <div className="flex gap-1">
+            <button onClick={() => setViewMode('list')} className={`p-2 rounded ${viewMode === 'list' ? 'bg-[#1a1a1a] text-white' : 'hover:bg-[#e5e5e5]'}`} title="Dạng danh sách">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" /></svg>
+            </button>
+            <button onClick={() => setViewMode('grid')} className={`p-2 rounded ${viewMode === 'grid' ? 'bg-[#1a1a1a] text-white' : 'hover:bg-[#e5e5e5]'}`} title="Dạng lưới">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+            </button>
+          </div>
+          <div className="w-px h-6 bg-[#e5e5e5]" />
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" checked={selectedIds.size === images.length} onChange={toggleSelectAll} className="w-4 h-4" />
             <span className="text-sm">Chọn tất cả</span>
           </label>
           <span className="text-sm text-[#666666]">{total} ảnh</span>
+        </div>
+        {/* Selection actions - Right side */}
+        <div className="flex items-center gap-3">
           {selectedIds.size > 0 && (
             <>
               <span className="text-sm text-[#3b82f6]">{selectedIds.size} đã chọn</span>
               <button onClick={handleDelete} className="btn btn-danger text-xs px-3 py-1">Xóa</button>
             </>
           )}
-        </div>
-        <div className="flex gap-1">
-          <button onClick={() => setViewMode('list')} className={`p-2 rounded ${viewMode === 'list' ? 'bg-[#1a1a1a] text-white' : 'hover:bg-[#e5e5e5]'}`}>
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" /></svg>
-          </button>
-          <button onClick={() => setViewMode('grid')} className={`p-2 rounded ${viewMode === 'grid' ? 'bg-[#1a1a1a] text-white' : 'hover:bg-[#e5e5e5]'}`}>
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
-          </button>
         </div>
       </div>
 

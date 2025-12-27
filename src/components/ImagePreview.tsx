@@ -154,10 +154,15 @@ export default function ImagePreview() {
           )}
         </div>
 
-        {/* Image History Scroller with Timestamp (Right side) */}
-        <div className="w-56 flex-shrink-0">
-          <div className="text-xs font-medium text-[#666666] uppercase tracking-wider mb-2">
-            Ảnh gần đây
+        {/* Image History with R2 Timestamp (Right side) */}
+        <div className="w-72 flex-shrink-0">
+          <div className="flex items-center gap-4 mb-2">
+            <div className="text-xs font-medium text-[#666666] uppercase tracking-wider flex-1">
+              Ảnh gần đây
+            </div>
+            <div className="text-xs font-medium text-[#666666] uppercase tracking-wider w-28 text-right">
+              R2 Timestamp
+            </div>
           </div>
           <div
             ref={historyRef}
@@ -178,7 +183,7 @@ export default function ImagePreview() {
                   >
                     <div className="flex gap-2">
                       {/* Thumbnail */}
-                      <div className="w-16 h-12 bg-[#f5f5f5] flex-shrink-0 relative">
+                      <div className="w-14 h-10 bg-[#f5f5f5] flex-shrink-0 relative">
                         <img
                           src={img.url}
                           alt={img.filename}
@@ -194,15 +199,18 @@ export default function ImagePreview() {
                           </div>
                         )}
                       </div>
-                      {/* Info with timestamp */}
-                      <div className="flex-1 py-1 pr-1 min-w-0">
+                      {/* Info */}
+                      <div className="flex-1 py-1 min-w-0">
                         <div className="text-[10px] font-medium truncate">
                           {img.filename}
                         </div>
                         <div className="text-[9px] text-[#999999]">
                           {formatDimensions(img.width, img.height)}
                         </div>
-                        <div className="text-[9px] text-[#3b82f6]">
+                      </div>
+                      {/* R2 Timestamp Column */}
+                      <div className="w-24 flex-shrink-0 py-1 pr-2 text-right">
+                        <div className="text-[9px] text-[#3b82f6] font-medium">
                           {formatDateTime(img.timestamp || img.created_at)}
                         </div>
                       </div>
