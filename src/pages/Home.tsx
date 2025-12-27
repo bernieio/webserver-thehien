@@ -45,7 +45,7 @@ export default function Home() {
           <div className="absolute" style={{ bottom: '18%', left: '22%' }}>
             <button
               onClick={() => setShowLogin(true)}
-              className="px-8 py-3 bg-[#1a1a2e] text-white font-medium text-lg border-2 border-white/20 hover:bg-[#16213e] hover:border-white/40 transition-all duration-200"
+              className="px-10 py-4 bg-[#1a1a2e] text-white font-medium text-2xl border-2 border-white/20 hover:bg-[#16213e] hover:border-white/40 transition-all duration-200"
             >
               Truy cập Web server
             </button>
@@ -53,45 +53,45 @@ export default function Home() {
         ) : (
           /* Login Modal */
           <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-            <div className="bg-white p-8 max-w-md w-full mx-4 border border-[#e5e5e5]">
-              <h2 className="text-xl font-semibold mb-6 text-center text-[#1a1a1a]">
+            <div className="bg-white p-10 max-w-lg w-full mx-4 border border-[#e5e5e5]">
+              <h2 className="text-3xl font-semibold mb-8 text-center text-[#1a1a1a]">
                 Đăng nhập hệ thống
               </h2>
               
-              <form onSubmit={handleLogin} className="space-y-4">
+              <form onSubmit={handleLogin} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#666666] mb-1">
+                  <label className="block text-xl font-medium text-[#666666] mb-2">
                     Tên đăng nhập
                   </label>
                   <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full px-4 py-2 border border-[#e5e5e5] text-sm focus:outline-none focus:border-[#1a1a1a] transition-colors"
+                    className="w-full px-4 py-3 border border-[#e5e5e5] text-xl focus:outline-none focus:border-[#1a1a1a] transition-colors"
                     placeholder="Nhập tên đăng nhập"
                     autoComplete="username"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-[#666666] mb-1">
+                  <label className="block text-xl font-medium text-[#666666] mb-2">
                     Mật khẩu
                   </label>
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-2 border border-[#e5e5e5] text-sm focus:outline-none focus:border-[#1a1a1a] transition-colors"
+                    className="w-full px-4 py-3 border border-[#e5e5e5] text-xl focus:outline-none focus:border-[#1a1a1a] transition-colors"
                     placeholder="Nhập mật khẩu"
                     autoComplete="current-password"
                   />
                 </div>
                 
                 {error && (
-                  <p className="text-sm text-[#ef4444]">{error}</p>
+                  <p className="text-lg text-[#ef4444]">{error}</p>
                 )}
                 
-                <div className="flex gap-3 pt-2">
+                <div className="flex gap-4 pt-2">
                   <button
                     type="button"
                     onClick={() => {
@@ -100,13 +100,13 @@ export default function Home() {
                       setUsername('');
                       setPassword('');
                     }}
-                    className="flex-1 px-4 py-2 border border-[#e5e5e5] text-sm font-medium text-[#666666] hover:border-[#1a1a1a] transition-colors"
+                    className="flex-1 px-4 py-3 border border-[#e5e5e5] text-xl font-medium text-[#666666] hover:border-[#1a1a1a] transition-colors"
                   >
                     Hủy
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-medium hover:bg-[#333333] transition-colors"
+                    className="flex-1 px-4 py-3 bg-[#1a1a1a] text-white text-xl font-medium hover:bg-[#333333] transition-colors"
                   >
                     Đăng nhập
                   </button>
