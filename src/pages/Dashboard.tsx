@@ -3,7 +3,6 @@
  * Hiển thị queue, ảnh đang xử lý, logs realtime
  */
 
-import StatusCard from '@/components/StatusCard';
 import ImagePreview from '@/components/ImagePreview';
 import LogPanel from '@/components/LogPanel';
 
@@ -14,12 +13,9 @@ export default function Dashboard() {
       <div>
         <h1 className="text-2xl font-bold text-[#1a1a1a]">Vận hành</h1>
         <p className="text-[#666666] mt-1">
-          Giám sát hệ thống xử lý ảnh theo thời gian thực
+          Giám sát hàng đợi xử lý ảnh theo thời gian thực
         </p>
       </div>
-
-      {/* Status Cards */}
-      <StatusCard />
 
       {/* Image Preview */}
       <ImagePreview />
