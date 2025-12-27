@@ -37,12 +37,14 @@ export function useLatestLogs() {
 
 /**
  * Hook for fetching activity logs
+ * Uses /api/logs with log_type=activity filter
  */
 export function useActivityLogs() {
   return useQuery<LogEntry[]>({
     queryKey: ['logs', 'activity'],
     queryFn: async () => {
-      return await logsApi.getActivityLogs();
+      const response = await logsApi.listLogs({ log_type: 'activity', page_size: 50 });
+      return response?.items ?? [];
     },
     refetchInterval: 2000,
   });
@@ -50,12 +52,14 @@ export function useActivityLogs() {
 
 /**
  * Hook for fetching server logs
+ * Uses /api/logs with log_type=server filter
  */
 export function useServerLogs() {
   return useQuery<LogEntry[]>({
     queryKey: ['logs', 'server'],
     queryFn: async () => {
-      return await logsApi.getServerLogs();
+      const response = await logsApi.listLogs({ log_type: 'server', page_size: 50 });
+      return response?.items ?? [];
     },
     refetchInterval: 2000,
   });
