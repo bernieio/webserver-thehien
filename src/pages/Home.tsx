@@ -47,7 +47,7 @@ export default function Home() {
               onClick={() => setShowLogin(true)}
               className="px-8 py-3 bg-[#1a1a2e] text-white font-medium text-lg border-2 border-white/20 hover:bg-[#16213e] hover:border-white/40 transition-all duration-200"
             >
-              Truy cập ngay
+              Truy cập Web server
             </button>
           </div>
         ) : (
