@@ -17,6 +17,7 @@ import Dashboard from './pages/Dashboard';
 import ImagesPage from './pages/ImagesPage';
 import LogsPage from './pages/LogsPage';
 import System from './pages/System';
+import Statistics from './pages/Statistics';
 
 // Auth Context
 interface AuthContextType {
@@ -89,6 +90,7 @@ export default function App() {
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="images" element={<ImagesPage />} />
                 <Route path="logs" element={<LogsPage />} />
+                <Route path="statistics" element={<Statistics />} />
                 <Route path="system" element={<System />} />
               </Route>
             </Routes>

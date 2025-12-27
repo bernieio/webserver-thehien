@@ -108,6 +108,10 @@ export default function Navbar() {
               )}
             </div>
             
+            <NavLink to="/app/statistics" className={navLinkClass}>
+              Thống kê
+            </NavLink>
+            
             <NavLink to="/app/system" className={navLinkClass}>
               Hệ thống
             </NavLink>
