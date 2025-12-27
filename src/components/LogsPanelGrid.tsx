@@ -21,7 +21,7 @@ export default function LogsPanelGrid({ startDate, endDate }: LogsPanelGridProps
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="flex flex-col gap-6">
       {levels.map((level) => (
         <LogLevelPanel
           key={level}
@@ -68,7 +68,7 @@ function LogLevelPanel({
         <span className="text-xs text-[#999999]">{logs.length} mục</span>
       </div>
 
-      <div className="bg-[#1a1a1a] rounded-lg overflow-hidden font-mono text-xs" style={{ height: '300px' }}>
+      <div className="bg-[#1a1a1a] rounded-lg overflow-hidden font-mono text-base" style={{ height: '280px' }}>
         <div className="overflow-y-auto h-full p-3">
           {isLoading ? (
             <div className="text-[#666666]">Đang tải...</div>

@@ -115,21 +115,25 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased text-lg;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Typography scale */
+  /* Typography scale - larger for projector */
   h1 {
-    @apply text-2xl font-semibold tracking-tight;
+    @apply text-4xl font-semibold tracking-tight;
   }
 
   h2 {
-    @apply text-xl font-semibold tracking-tight;
+    @apply text-2xl font-semibold tracking-tight;
   }
 
   h3 {
-    @apply text-lg font-medium;
+    @apply text-xl font-medium;
+  }
+
+  p, span, div, td, th, li, label {
+    @apply text-lg;
   }
 
   /* Scrollbar styling */
