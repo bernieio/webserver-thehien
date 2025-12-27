@@ -33,62 +33,62 @@ export default function StatusCard() {
       {/* Queue Status */}
       <div className="card">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-medium text-[#666666] uppercase tracking-wider">
+          <h3 className="text-lg font-medium text-[#666666] uppercase tracking-wider">
             Hàng đợi
           </h3>
-          <span className={`badge ${queue.current_size && queue.current_size > 0 ? 'badge-info' : ''}`}>
+          <span className={`badge text-lg ${queue.current_size && queue.current_size > 0 ? 'badge-info' : ''}`}>
             {queue.is_full ? 'Đầy' : queue.is_empty ? 'Trống' : 'Hoạt động'}
           </span>
         </div>
-        <div className="text-4xl font-bold mb-1">
+        <div className="text-5xl font-bold mb-1">
           {queue.current_size ?? 0}
         </div>
-        <div className="text-sm text-[#666666]">
+        <div className="text-lg text-[#666666]">
           / {queue.max_size ?? 100} dung lượng
         </div>
-        <div className="mt-4 pt-4 border-t border-[#f0f0f0] grid grid-cols-2 gap-4 text-sm">
+        <div className="mt-4 pt-4 border-t border-[#f0f0f0] grid grid-cols-2 gap-4 text-lg">
           <div>
             <div className="text-[#999999]">Đẩy vào</div>
-            <div className="font-medium">{queue.total_pushed ?? 0}</div>
+            <div className="font-medium text-xl">{queue.total_pushed ?? 0}</div>
           </div>
           <div>
             <div className="text-[#999999]">Lấy ra</div>
-            <div className="font-medium">{queue.total_popped ?? 0}</div>
+            <div className="font-medium text-xl">{queue.total_popped ?? 0}</div>
           </div>
         </div>
       </div>
 
       {/* System Status */}
       <div className="card">
-        <h3 className="text-sm font-medium text-[#666666] uppercase tracking-wider mb-2">
+        <h3 className="text-lg font-medium text-[#666666] uppercase tracking-wider mb-2">
           Hệ thống
         </h3>
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center text-lg">
             <span className="text-[#666666]">Bộ nhớ</span>
-            <span className="font-medium">{system.memory_mb ?? 0} MB</span>
+            <span className="font-medium text-xl">{system.memory_mb ?? 0} MB</span>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center text-lg">
             <span className="text-[#666666]">CPU</span>
-            <span className="font-medium">{system.cpu_percent ?? 0}%</span>
+            <span className="font-medium text-xl">{system.cpu_percent ?? 0}%</span>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center text-lg">
             <span className="text-[#666666]">Luồng</span>
-            <span className="font-medium">{system.threads ?? 0}</span>
+            <span className="font-medium text-xl">{system.threads ?? 0}</span>
           </div>
         </div>
       </div>
 
       {/* Uptime */}
       <div className="card">
-        <h3 className="text-sm font-medium text-[#666666] uppercase tracking-wider mb-2">
+        <h3 className="text-lg font-medium text-[#666666] uppercase tracking-wider mb-2">
           Thời gian hoạt động
         </h3>
-        <div className="text-4xl font-bold mb-1">
+        <div className="text-5xl font-bold mb-1">
           {Math.floor((data?.uptime_seconds ?? 0) / 60)}
-          <span className="text-lg font-normal text-[#666666]"> phút</span>
+          <span className="text-2xl font-normal text-[#666666]"> phút</span>
         </div>
-        <div className="text-sm text-[#999999]">
+        <div className="text-lg text-[#999999]">
           Từ lần khởi động gần nhất
         </div>
       </div>

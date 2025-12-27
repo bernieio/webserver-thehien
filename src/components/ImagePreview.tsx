@@ -60,14 +60,14 @@ export default function ImagePreview() {
   return (
     <div className="card">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-[#666666] uppercase tracking-wider">
+        <h3 className="text-lg font-medium text-[#666666] uppercase tracking-wider">
           Hàng đợi tự động xử lý
         </h3>
         <div className="flex items-center gap-3">
           {/* Processing indicator */}
           {(isProcessing || popMutation.isPending) && (
-            <div className="flex items-center gap-2 text-sm text-[#3b82f6]">
-              <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+            <div className="flex items-center gap-2 text-lg text-[#3b82f6]">
+              <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
@@ -76,12 +76,12 @@ export default function ImagePreview() {
           )}
 
           {/* Queue size badge */}
-          <span className={`badge ${queueSize > 0 ? 'badge-info' : ''}`}>
+          <span className={`badge text-lg ${queueSize > 0 ? 'badge-info' : ''}`}>
             Hàng đợi: {queueSize}
           </span>
 
           {/* History count */}
-          <span className="badge">
+          <span className="badge text-lg">
             Lịch sử: {imageHistory.length}
           </span>
         </div>
@@ -114,28 +114,28 @@ export default function ImagePreview() {
               </div>
 
               {/* Image Info */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-lg">
                 <div>
                   <div className="text-[#999999]">Tên file</div>
-                  <div className="font-medium truncate" title={displayImage.filename}>
+                  <div className="font-medium text-xl truncate" title={displayImage.filename}>
                     {displayImage.filename}
                   </div>
                 </div>
                 <div>
                   <div className="text-[#999999]">Kích thước</div>
-                  <div className="font-medium">
+                  <div className="font-medium text-xl">
                     {formatDimensions(displayImage.width, displayImage.height) || 'N/A'}
                   </div>
                 </div>
                 <div>
                   <div className="text-[#999999]">Dung lượng</div>
-                  <div className="font-medium">
+                  <div className="font-medium text-xl">
                     {formatFileSize(displayImage.size_bytes) || 'N/A'}
                   </div>
                 </div>
                 <div>
                   <div className="text-[#999999]">Đã xử lý</div>
-                  <div className="font-medium">
+                  <div className="font-medium text-xl">
                     {formatRelativeTime(displayImage.timestamp || displayImage.created_at)}
                   </div>
                 </div>
@@ -143,11 +143,11 @@ export default function ImagePreview() {
             </div>
           ) : (
             <div className="empty-state py-12">
-              <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <p className="mt-2">Đang chờ ảnh...</p>
-              <p className="text-sm">
+              <p className="mt-2 text-xl">Đang chờ ảnh...</p>
+              <p className="text-lg">
                 Tải ảnh từ giao diện desktop để tự động xử lý.
               </p>
             </div>
@@ -155,12 +155,12 @@ export default function ImagePreview() {
         </div>
 
         {/* Image History with R2 Timestamp (Right side) */}
-        <div className="w-72 flex-shrink-0">
+        <div className="w-96 flex-shrink-0">
           <div className="flex items-center gap-4 mb-2">
-            <div className="text-xs font-medium text-[#666666] uppercase tracking-wider flex-1">
+            <div className="text-base font-medium text-[#666666] uppercase tracking-wider flex-1">
               Ảnh gần đây
             </div>
-            <div className="text-xs font-medium text-[#666666] uppercase tracking-wider w-28 text-right">
+            <div className="text-base font-medium text-[#666666] uppercase tracking-wider w-36 text-right">
               R2 Timestamp
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function ImagePreview() {
                   >
                     <div className="flex gap-2">
                       {/* Thumbnail */}
-                      <div className="w-14 h-10 bg-[#f5f5f5] flex-shrink-0 relative">
+                      <div className="w-20 h-14 bg-[#f5f5f5] flex-shrink-0 relative">
                         <img
                           src={img.url}
                           alt={img.filename}
@@ -194,23 +194,23 @@ export default function ImagePreview() {
                           }}
                         />
                         {index === 0 && (
-                          <div className="absolute top-0 left-0 bg-[#22c55e] text-white text-[8px] px-1">
+                          <div className="absolute top-0 left-0 bg-[#22c55e] text-white text-xs px-1">
                             MỚI
                           </div>
                         )}
                       </div>
                       {/* Info */}
                       <div className="flex-1 py-1 min-w-0">
-                        <div className="text-[10px] font-medium truncate">
+                        <div className="text-sm font-medium truncate">
                           {img.filename}
                         </div>
-                        <div className="text-[9px] text-[#999999]">
+                        <div className="text-xs text-[#999999]">
                           {formatDimensions(img.width, img.height)}
                         </div>
                       </div>
                       {/* R2 Timestamp Column */}
-                      <div className="w-24 flex-shrink-0 py-1 pr-2 text-right">
-                        <div className="text-[9px] text-[#3b82f6] font-medium">
+                      <div className="w-32 flex-shrink-0 py-1 pr-2 text-right">
+                        <div className="text-xs text-[#3b82f6] font-medium">
                           {formatDateTime(img.timestamp || img.created_at)}
                         </div>
                       </div>
@@ -219,7 +219,7 @@ export default function ImagePreview() {
                 ))}
               </div>
             ) : (
-              <div className="flex items-center justify-center h-full text-[#999999] text-sm">
+              <div className="flex items-center justify-center h-full text-[#999999] text-lg">
                 Chưa có ảnh
               </div>
             )}

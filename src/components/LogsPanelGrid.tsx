@@ -62,20 +62,20 @@ function LogLevelPanel({
   return (
     <div className={`card border-t-4 ${colors.border}`}>
       <div className="flex items-center justify-between mb-3">
-        <span className={`px-2 py-1 rounded text-xs font-medium ${colors.bg} ${colors.text}`}>
+        <span className={`px-3 py-1 rounded text-lg font-medium ${colors.bg} ${colors.text}`}>
           {label}
         </span>
-        <span className="text-xs text-[#999999]">{logs.length} mục</span>
+        <span className="text-lg text-[#999999]">{logs.length} mục</span>
       </div>
 
-      <div className="bg-[#1a1a1a] rounded-lg overflow-hidden font-mono text-base" style={{ height: '280px' }}>
-        <div className="overflow-y-auto h-full p-3">
+      <div className="bg-[#1a1a1a] rounded-lg overflow-hidden font-mono text-lg" style={{ height: '300px' }}>
+        <div className="overflow-y-auto h-full p-4">
           {isLoading ? (
-            <div className="text-[#666666]">Đang tải...</div>
+            <div className="text-[#666666] text-lg">Đang tải...</div>
           ) : logs.length > 0 ? (
-            <div className="space-y-1">
+            <div className="space-y-2">
               {logs.map((log: LogEntry, i: number) => (
-                <div key={i} className="flex gap-2 py-0.5">
+                <div key={i} className="flex gap-3 py-1">
                   <span className="text-[#666666] flex-shrink-0">
                     [{formatLogTime(log.timestamp || log.created_at)}]
                   </span>
@@ -86,7 +86,7 @@ function LogLevelPanel({
               ))}
             </div>
           ) : (
-            <div className="text-[#666666] text-center py-4">Không có nhật ký</div>
+            <div className="text-[#666666] text-center py-4 text-lg">Không có nhật ký</div>
           )}
         </div>
       </div>
